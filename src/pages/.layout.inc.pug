@@ -1,22 +1,44 @@
 include .config.inc.pug
 
+mixin project(date, title, link, pic)
+  article
+    .info
+      span.date
+        i.fa.fa-calendar
+        | &#160;#{date}
+      a(href=link)
+        h2= title
+      block
+      a(href=link)
+        i.fa.fa-link
+        | &#160;Link
+    .visual
+      a(href=link)
+        if ! pic
+          - pic = profilePicUrl
+        img(src=pic)
+
 html
   head
     meta(charset='UTF-8')
     meta(name='viewport', content='initial-scale=1.0')
     title= name
-    link(rel="stylesheet", href="./all.min.css")
+    link(rel="stylesheet", href="./css/all.min.css")
   body
     header
       #me
-        img(src=profilePicUrl)
+        img(src=profilePicUrlMini)
         h1= name
       #about
         p A small website to introduce myself
       #links
-        ul
-          li Github
-          li LinkedIn  
+        a(href=linkedinProfile)
+          i.fa.fa-linkedin
+        a(href=githubProfile)
+          i.fa.fa-github
     block content
     footer
-      p This is the footer.
+      a(href=sourceWebsite)
+        i.fa.fa-code-fork
+        | &#160;This website is open-source
+      p Created by Sylvain DOIGNON, 2017
