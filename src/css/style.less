@@ -4,7 +4,6 @@
 @headerForeground: white;
 @break-mobile: 600px;
 
-
 html, body { 
   width: 100%;
   min-height: 100%;
@@ -38,6 +37,7 @@ section#projects {
   position: relative;
   article {
     overflow: hidden;
+    margin-bottom: 30px;
     clear: both;
      > div {
       width: ~"calc(50% - 5px)";
@@ -45,41 +45,53 @@ section#projects {
       vertical-align: top;
     }
     .info {
+      border-top: 2px solid red;
+      .date {
+        background: red;
+        color: white;
+        padding: 0 10px;
+      }
     }
-    .visual img {
-      width: 100%;
+    .visual {
+      img {
+        width: 100%;
+      }
     }
-    @media screen and (min-width: @break-mobile) {
-      &:nth-child(odd) .info { 
-        float:left; 
-      }
-      &:nth-child(even) .info {
-         float:right;
-      }
-      &:nth-child(odd) .visual { 
-        float:right; 
-      }
-      &:nth-child(even) .visual {
-         float:left;
-      }
+    &:nth-child(odd) .info { 
+      float:left; 
+    }
+    &:nth-child(even) .info {
+       float:right;
+    }
+    &:nth-child(odd) .visual { 
+      float:right; 
+    }
+    &:nth-child(even) .visual {
+       float:left;
     }
   }
   svg#redCircle {
-    @width: 20;
-    position: absolute;
+    @width: 80;
+    position: relative;
     top: 0;
-    left: ~"calc(50% - " @width / 4 * 1px ~")";
-    height: 100%;
+    left: ~"calc(50% - " @width / 2 * 1px ~")";
     width: @width * 1px;
+    height: @width * 1px;
+    margin: 40px 0;
     circle {
-      stroke: red;
-      stroke-width: @width * 1px;
+      fill: red;
+    }
+    text {
+      fill: white;
+      stroke: white;
+      stroke-width: 1.3px;
+      text-anchor: middle;
     }
   }
   svg#redLine {
     @width: 20;
     position: absolute;
-    top: 0;
+    top: 60;
     left: ~"calc(50% - " @width / 4 * 1px ~")";
     height: 100%;
     width: @width * 1px;
@@ -92,4 +104,27 @@ section#projects {
 
 footer {
   clear: both;
+}
+
+@media screen and (max-width: @break-mobile) {
+  section#projects {
+    .visual {
+      clear: both
+    }
+    article {
+      margin-left: 10px;
+    }
+    .visual, .info {
+      width: 100%;
+    }
+    svg#redLine{
+      left: 0
+    }
+    svg#redCircle {
+      left: -40;
+      text {
+        transform: translate(20px,0px);
+      }
+    }
+  }
 }
