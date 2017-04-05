@@ -1,0 +1,35 @@
+{
+  "name": "sd65.github.io",
+  "version": "1.0.0",
+  "description": "Personal Website",
+  "main": "",
+  "scripts": {
+    "test": "echo 'Error: no test specified' && exit 1",
+    "watch": "chokidar '**/*.{pug,less,json}' -i 'node_modules' -c 'npm run build && echo OK'",
+    "update": "npm run update:npmPackages && npm run update:normalizeCss",
+    "update:npmPackages": "npm update",
+    "update:normalizeCss": "cp node_modules/normalize.css/normalize.css css/dist/",
+    "build": "npm run build:pug && npm run build:css && npm run build:copy",
+    "build:pug": "pug pages/* -o .",
+    "build:css": "lessc --clean-css css/style.less css/all.min.css",
+    "build:copy": "npm run build:copy:clean && npm run build:copy:move",
+    "build:copy:clean": "rm -f ../*.{html,css,js}",
+    "build:copy:move": "cp *.html css/all.min.css .."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sd65/sd65.github.io.git"
+  },
+  "author": "Sylvain DOIGNON",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sd65/sd65.github.io/issues"
+  },
+  "homepage": "https://github.com/sd65/sd65.github.io#readme",
+  "dependencies": {
+    "chokidar-cli": "^1.2.0",
+    "less": "^2.7.2",
+    "less-plugin-clean-css": "^1.5.1",
+    "pug-cli": "^1.0.0-alpha6"
+  }
+}

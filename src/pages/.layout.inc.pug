@@ -1,0 +1,22 @@
+include .config.inc.pug
+
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='initial-scale=1.0')
+    title= name
+    link(rel="stylesheet", href="./all.min.css")
+  body
+    header
+      #me
+        img(src=profilePicUrl)
+        h1= name
+      #about
+        p A small website to introduce myself
+      #links
+        ul
+          li Github
+          li LinkedIn  
+    block content
+    footer
+      p This is the footer.

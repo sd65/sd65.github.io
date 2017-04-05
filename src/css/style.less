@@ -1,0 +1,95 @@
+@import (less) "dist/normalize.css";
+
+@headerBackground: black;
+@headerForeground: white;
+@break-mobile: 600px;
+
+
+html, body { 
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+header {
+  background-color: @headerBackground;
+  color: @headerForeground;
+  margin: 0;
+  width: 100%;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  #me {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 100px;
+      margin-right: 20px;
+    }
+  }
+}
+
+section#projects {
+  position: relative;
+  article {
+    overflow: hidden;
+    clear: both;
+     > div {
+      width: ~"calc(50% - 5px)";
+      display: inline-block;
+      vertical-align: top;
+    }
+    .info {
+    }
+    .visual img {
+      width: 100%;
+    }
+    @media screen and (min-width: @break-mobile) {
+      &:nth-child(odd) .info { 
+        float:left; 
+      }
+      &:nth-child(even) .info {
+         float:right;
+      }
+      &:nth-child(odd) .visual { 
+        float:right; 
+      }
+      &:nth-child(even) .visual {
+         float:left;
+      }
+    }
+  }
+  svg#redCircle {
+    @width: 20;
+    position: absolute;
+    top: 0;
+    left: ~"calc(50% - " @width / 4 * 1px ~")";
+    height: 100%;
+    width: @width * 1px;
+    circle {
+      stroke: red;
+      stroke-width: @width * 1px;
+    }
+  }
+  svg#redLine {
+    @width: 20;
+    position: absolute;
+    top: 0;
+    left: ~"calc(50% - " @width / 4 * 1px ~")";
+    height: 100%;
+    width: @width * 1px;
+    line {
+      stroke: red;
+      stroke-width: @width * 1px;
+    }
+  }
+}
+
+footer {
+  clear: both;
+}
