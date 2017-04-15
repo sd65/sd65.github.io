@@ -4,18 +4,17 @@
   "description": "Personal Website",
   "main": "",
   "scripts": {
-    "test": "echo 'Error: no test specified' && exit 1",
     "watch": "chokidar '**/*.{pug,less,json}' -i 'node_modules' -c 'npm run build && echo OK'",
     "update": "npm run update:npmPackages && npm run update:normalizeCss && npm run update:fontAwesome",
     "update:npmPackages": "npm update",
     "update:normalizeCss": "cp node_modules/normalize.css/normalize.css css/dist/",
     "update:fontAwesome": "rm -rf fonts && cp -r node_modules/font-awesome/fonts fonts && cp node_modules/font-awesome/css/font-awesome.min.css css/dist/",
-    "build": "npm run build:pug && npm run build:css && npm run build:copy",
+    "build": "(npm run build:pug & npm run build:css ) && npm run build:copy",
     "build:pug": "pug pages/* -o .",
     "build:css": "lessc --clean-css css/style.less css/all.min.css",
     "build:copy": "npm run build:copy:clean && npm run build:copy:move",
-    "build:copy:clean": "rm -rf ../{*.html,css,fonts}",
-    "build:copy:move": "cp *.html .. && mkdir ../{css,fonts} && cp css/all.min.css ../css/ && cp -r fonts .."
+    "build:copy:clean": "rm -rf ../{*.html,css,fonts,img}",
+    "build:copy:move": "cp -r *.html img .. && mkdir ../{css,fonts} && cp css/all.min.css ../css/ && cp -r fonts .."
   },
   "repository": {
     "type": "git",

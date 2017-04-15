@@ -1,0 +1,10 @@
+extends .layout.inc.pug
+
+block content
+  section#aboutme
+    h2 Bio
+    p I'm real curious.
+    h2 Contact me
+    a(href="mailto:" + emailAddress)= emailAddress 
+    h2 CV
+    img(src=resumeThumbnail)

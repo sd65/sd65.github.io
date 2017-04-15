@@ -1,7 +1,8 @@
 include .config.inc.pug
 
-mixin project(date, title, link, pic)
-  article
+mixin project(date, title, link, pic, tags)
+  - var id = title.replace(/\W+/g, "").toLowerCase()
+  article(id=id)
     .info
       span.date
         i.fa.fa-calendar
@@ -9,9 +10,14 @@ mixin project(date, title, link, pic)
       a(href=link)
         h2= title
       block
+      if tags
+        each tag in tags
+          span.tag=tag
       a(href=link)
-        i.fa.fa-link
-        | &#160;Link
+        h3
+          i.fa.fa-link
+          | &#160;More details
+
     .visual
       a(href=link)
         if ! pic
@@ -30,12 +36,27 @@ html
         img(src=profilePicUrlMini)
         h1= name
       #about
-        p A small website to introduce myself
+        p= about
       #links
-        a(href=linkedinProfile)
+        a(href=linkedinProfile, title="LinkedIn")
           i.fa.fa-linkedin
-        a(href=githubProfile)
+        a(href=githubProfile, title="Github")
           i.fa.fa-github
+        a(href=resumeLink, title="My resume")
+          i.fa.fa-file-text
+      ul#nav
+        li
+          a(href="/", title="Projects")
+            i.fa.fa-lightbulb-o
+            | &#160;Projects
+        li
+          a(href="/about.html", title="About")
+            i.fa.fa-info
+            | &#160;About
+        li
+          a(href="/blog.html", title="Blog")
+            i.fa.fa-lightbulb-o
+            | &#160;Blog
     block content
     footer
       a(href=sourceWebsite)
