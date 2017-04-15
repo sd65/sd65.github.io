@@ -139,6 +139,7 @@ section#projects {
       }
       p {
         text-align: justify;
+        padding-right: 10px;
       }
       .tag {
           background-color: red;
@@ -209,14 +210,18 @@ footer {
 
 @media screen and (max-width: @break-mobile) {
   section#projects {
-    .visual {
-      margin-top: 15px;
-    }
     article:nth-child(2n) .info {
       float: none;
     }
     article {
       margin-left: 10px;
+      padding-right: 0 !important;
+      .visual {
+        margin-top: 15px;
+      }
+      .info {
+        padding-left: 0;
+      }
     }
     .date {
       float: right;
