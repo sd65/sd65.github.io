@@ -1,6 +1,23 @@
 extends .layout.inc.pug
 
 block content
+  #glossary
+    p 
+      | There are currently
+      |
+      span#nbProjects ?
+      |
+      | projects presented here with the following tags:
+      | 
+      span#tags empty
+    p#tagsMatchingInfo
+      | Viewing the
+      |
+      span#nbOfProjectsMatching
+      |
+      | project(s) with the tag(s):
+      | 
+      span#selectedTags
   section#projects
     svg#redLine
       line(x1='0', y1='0', x2='0', y2='100%')

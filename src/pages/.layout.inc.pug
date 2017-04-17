@@ -2,7 +2,7 @@ include .config.inc.pug
 
 mixin project(date, title, link, pic, tags)
   - var id = title.replace(/\W+/g, "").toLowerCase()
-  article(id=id)
+  article.project(id=id)
     .info
       span.date
         i.fa.fa-calendar
@@ -63,3 +63,5 @@ html
         i.fa.fa-code-fork
         | &#160;This website is open-source
       p Created by Sylvain DOIGNON, 2017
+    .scripts
+      script(src="js/all.min.js")

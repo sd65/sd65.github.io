@@ -72,6 +72,28 @@ section#aboutme {
   text-align: center;
   margin-bottom: 20px;
 }
+#glossary {
+  text-align: center;
+  width: 70%;
+  margin: 30px auto;
+  display: block;
+  #tagsMatchingInfo {
+    display: none;
+  }
+  #selectedTags {
+    margin-right: 10px;
+  }
+}
+.tag {
+    background-color: red;
+    color: white;
+    padding: 5px;
+    display: inline-block;
+    margin: 5px 10px 5px 0;
+    &:hover {
+      cursor: pointer;
+    }
+}
 section#projects {
   position: relative;
   margin: 0 auto;
@@ -140,13 +162,6 @@ section#projects {
       p {
         text-align: justify;
         padding-right: 10px;
-      }
-      .tag {
-          background-color: red;
-          color: white;
-          padding: 5px;
-          display: inline-block;
-          margin-right: 10px;
       }
     }
     .visual {
