@@ -1,17 +1,23 @@
 @import (less) "dist/normalize.css";
 @import (less) "dist/font-awesome.min.css";
 
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 @color1: black;
 @color2: white;
-@color3: #e53935;
+@color3: #ea5833;
 
 
 @break-mobile: 800px;
 
-html, body { 
+
+html { 
+  font-family: 'Roboto', sans-serif;
+  body { 
   width: 100%;
   min-height: 100%;
   margin: 0;
+  }
 }
 
 header {
@@ -40,7 +46,7 @@ header {
     }
   }
   #about {
-    margin: 10px 0;
+    font-size: 20px;
   }
   #links {
     a, a:visited {
@@ -71,6 +77,13 @@ header {
 section#aboutme {
   text-align: center;
   margin-bottom: 20px;
+  h2 {
+    color: @color3;
+  }
+  a, a:visited {
+    color: @color1;
+    text-decoration: none;
+  }
 }
 #glossary {
   text-align: center;
@@ -83,9 +96,13 @@ section#aboutme {
   #selectedTags {
     margin-right: 10px;
   }
+  #tags, #selectedTags {
+    display: block;
+    margin-top: 5px;
+  }
 }
 .tag {
-    background-color: red;
+    background-color: @color3;
     color: white;
     padding: 5px;
     display: inline-block;
@@ -224,6 +241,9 @@ footer {
 }
 
 @media screen and (max-width: @break-mobile) {
+  h1 {
+    font-size: 1.4em;
+  }
   section#projects {
     article:nth-child(2n) .info {
       float: none;
@@ -233,6 +253,9 @@ footer {
       padding-right: 0 !important;
       .visual {
         margin-top: 15px;
+        img {
+          max-width: 95%;
+        }
       }
       .info {
         padding-left: 0;
@@ -251,6 +274,7 @@ footer {
       left: -40;
       text {
         transform: translate(20px,0px);
+        font-size: 18px;
       }
     }
   }
