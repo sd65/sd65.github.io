@@ -24,11 +24,14 @@ mixin project(date, title, link, pic, tags)
           - pic = profilePicUrl
         img(src=pic)
 
+
 html
+  block vars
   head
     meta(charset='UTF-8')
     meta(name='viewport', content='initial-scale=1.0')
-    title= name
+    meta(name="description", content=metaDescription)
+    title= name + " | " + title
     link(rel="stylesheet", href="./css/all.min.css")
   body
     header

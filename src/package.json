@@ -14,8 +14,8 @@
     "build:js": "uglifyjs js/script.js -o js/all.min.js",
     "build:css": "lessc --clean-css css/style.less css/all.min.css",
     "build:copy": "npm run build:copy:clean && npm run build:copy:move",
-    "build:copy:clean": "rm -rf ../{*.html,css,fonts,img,js}",
-    "build:copy:move": "cp -r *.html img .. && mkdir ../{js,css,fonts} && cp css/all.min.css ../css/ && cp js/all.min.js ../js && cp -r fonts .."
+    "build:copy:clean": "rm -rf ../{*.html,css/*,js/*}",
+    "build:copy:move": "mv *.html .. && mv css/all.min.css ../css/ && mv js/all.min.js ../js"
   },
   "repository": {
     "type": "git",

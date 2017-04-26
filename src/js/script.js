@@ -13,6 +13,9 @@ _paq.push(['enableLinkTracking']);
 // Do not polute the global scope
 (function (){
   
+  // JS is enabled, so we can display this
+  document.getElementById('glossary').style.display = "block"; 
+  
   // Global vars  
   var projects = document.getElementsByClassName("project")
   var selectedTagsDiv = document.getElementById('selectedTags');  
