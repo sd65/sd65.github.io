@@ -1,5 +1,31 @@
 include .config.inc.pug
 
+mixin glossary()
+  #glossary
+    p 
+      | There are currently
+      |
+      span#nbProjects ?
+      |
+      | projects presented here with the following tags (click to filter):
+      | 
+      span#tags empty
+    p#tagsMatchingInfo
+      | Viewing the
+      |
+      span#nbOfProjectsMatching
+      |
+      | project(s) with the tag(s):
+      | 
+      span#selectedTags
+
+mixin svgDecoration
+  svg#redLine
+    line(x1='0', y1='0', x2='0', y2='100%')
+  svg#redCircle
+    circle(cx='40', cy='40', r='40')
+    text(x="50%", y="58%") Now
+
 mixin project(date, title, link, pic, tags)
   - var id = title.replace(/\W+/g, "").toLowerCase()
   article.project(id=id)
@@ -52,9 +78,14 @@ html
       ul#nav
         li
           a(href="/", title="Projects")
-            i.fa.fa-lightbulb-o
+            i.fa.fa-home
             |
             | Personal projects
+        li
+          a(href="/professional-projects.html", title="Professional Projects")
+            i.fa.fa-briefcase
+            |
+            | Professional projects
         li
           a(href="/about.html", title="About")
             i.fa.fa-info

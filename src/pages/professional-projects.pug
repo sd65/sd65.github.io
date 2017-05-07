@@ -1,0 +1,36 @@
+extends .layout.inc.pug
+
+block vars
+  - var title = "Professional Projects"
+  - metaDescription = "Welcome to my personal website. Find here a quick presentation of my professional projects."
+
+block content
+  .intro
+    p You can find here some of my best projects I took part in during some of my jobs. In many of cases, I can't disclose the project name or details. Nevertheless, skills & technologies are exposed here.
+    p WARNING: Writing in progress for most projects. Please scroll down to discover redacted projects or come back in 48 hours.
+  +glossary
+  section#projects
+    +svgDecoration
+    +project("May 2017", "Virtual machines deployment automation", "#", "img/in-progress.png", ["Powershell", "VMWare", "Shell scripts", "PXE"])
+      p Writing in progress
+    +project("April 2017", "Log centralization system", "#", "img/in-progress.png", ["Syslog", "ELK", "Shell scripts", "Grafana", "InfluxDB"])
+      p Writing in progress
+    +project("June 2016 - April 2017", "Web App & API from scratch", "#", "img/projectSG02.png", ["Node.js", "JS", "Bootstrap", "OAuth", "JWT", "Ldap", "AD", "Docker", "Nginx", "Load Balancer", "Infrastructure", "ELK", "API", "Swagger"])
+      p On June 2016, I was welcomed by a functional specification describing the automation of accounts, groups and access management. I was designed to take care of everything: infrastructure choice, technologies used, etc.
+      p The goal was to create an API to allow CRUD operations on Unix accounts, groups and machine access/authorization. Furthermore, an Web app had to be developped to facilitate the use of the API. I took a week to choose the ideal architecture: I had many choices. At the end, I retained a solution that obviously evolved a bit, but not too much!
+      p Let's explain the project from the client perspective: first, you are welcomed by a login page on the web app. The authentification system use the entreprise OAuth SSO and deliver a JWT token. Now, that you're authenticated you're free to use the web app that's basically a website with many forms. On each page, as you type in input fields, the content is validated on the fly by the browser and displayed next to the field. This prevents users from submitting errors. To avoid duplicating the form/field validation system on the client and on the server, the client send its "incomplete" data to the server that returns a status. Thanks to this, the Web app can be kept as small as possible. The Javascript code for the client was wrote from scratch because it is basic and using React or Angular.js was overkill in my opinion. Obvisouly, I had to write some part of my own JS library, it was instructive.
+      p Next, the API. Written in Node.js, it's probably the biggest app/program I ever wrote. First, express is used to handle requests. After that, ES6 classes (the API is written with cutting-edge JS: async/await, arrows functions, etc) are used to handle the request. The majority of those creates an LDAP request started by the native library ldap.js. A lot of actions are available so this app had to be well organized and written. Additionally, an Swagger endpoint was created for documentation.
+      p Speaking of infrastructure and redundancy, let's explain it bottom-up. The Web app and the API are hosted in a Docker container. Thanks to a Docker Swarm cluster, multiple API instances are created and are load-balanced/managed by a local reverse-proxy Nginx instance. Finally, a fontal TCP load-balancer distribute the request over two physical site with the infrastructure described above.
+      p This project was amazingly instructive. My Node.js skills skyrocketed. Moreover, I took care of everything in this project thanks to the trust of my superiors: code, hardware choices, security, deployment, etc.
+      p To my pleasure, since February 2017, my project is in production.
+    +project("May 2016 - June 2016", "VM as a service", "#", "img/in-progress.png", ["Docker", "VirtualBox", "Powershell", "Shell scripts", "PHP", "SQlite"])
+      p I love to tweak everything for my computer setup. Unfortunately, in a big company some tools are mandatory. For my workflow, I dislike working on Windows as no great window managers are available and no terminals are great.
+      p My stubborness decided to fix the problem one day. If having Windows on your comporate laptop is mandatory, nothing stops you from booting a Linux VM on it. For my own usage, I decided to revive an old project where this was possible thanks to VirtualBox. The original code was a bit messy so I cleaned it up and organized the code in such way that it was modular.
+      p Few days later, as I discussed about this with my coworkers, they seemed interested too! That's how I decided to automate the creation of this Linux VM and make it usable for a new user as fast as possible. Some days later, the only thing you had to do was to install VirtualBox and launch a Powershell script that took care of everything: download my prepacked OVA (with corporate settings), deploy it locally and post-install it with the settings entered by the user. Then, it worked out of the box at the first boot.
+      p Months pass by and one day I got a call from the internal Docker Team. For some reason not described here, they needed to offer to many developpers an Docker environment ASAP. With the standard proccess, they would have waited for weeks before they get anything. They wondered if I could add an Docker environment in those VMs and were very pleased to discover 24 hours later that... it was done & ready.
+      p Since then, I improved this solution a lot. Foe example, a main monitoring server is used to supervise all (numerous!) installations and take care of updates and other security concerns for the VMs.
+      p I love this project, because what stated as a initiative became a well used application unexpectedly!
+    +project("June 2015 - February 2016", "Web app & Shell Scripts", "#", "img/in-progress.png", ["PHP", "Bootstrap", "Shell scripts", "JS", "API", "TCL"])
+      p Writing in progress
+    +project("May 2014 - June 2014", "Local & distant CMS manager", "#", "img/in-progress.png", ["PHP", "Bootstrap", "Shell scripts", "JS"])
+      p Writing in progress

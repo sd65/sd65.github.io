@@ -5,32 +5,11 @@ block vars
   - metaDescription = "Welcome to my personal website. Find here an explained list of my personal IT projects. "
 
 block content
-  #aboutTheWebsite
-    p I realized this small website to present my personal IT projects. The number of my Github repositories keeps growing (for serious ou fun projects) and I wanted to show them in a more orderly way.
-    p For every project I explain why and how & and provide a screenshot and a link to the repository where you can find the actual code. I hope some of them will get your attention. Please remember that those projects are strictly personal. That means none of my professional projects can be found here.
-  #glossary
-    p 
-      | There are currently
-      |
-      span#nbProjects ?
-      |
-      | projects presented here with the following tags (click to filter):
-      | 
-      span#tags empty
-    p#tagsMatchingInfo
-      | Viewing the
-      |
-      span#nbOfProjectsMatching
-      |
-      | project(s) with the tag(s):
-      | 
-      span#selectedTags
+  .intro
+    p I realized this small website to present my personal IT projects. The number of my Github repositories keeps growing (for serious ou fun projects) and I wanted to show them in a more orderly way. For every project I explain why and how & and provide a screenshot and a link to the repository where you can find the actual code. I hope some of them will get your attention.
+  +glossary
   section#projects
-    svg#redLine
-      line(x1='0', y1='0', x2='0', y2='100%')
-    svg#redCircle
-      circle(cx='40', cy='40', r='40')
-      text(x="50%", y="58%") Now
+    +svgDecoration
     +project("April 2017", "My new resume", "https://github.com/sd65/CV", "https://raw.githubusercontent.com/sd65/CV/master/CV_Sylvain-Doignon.thumbnail.png", ["LaTeX"])
       p My previous resume was made with Photostop. Every edit was a nightmare: boot up a Windows VM, open the bloated Photostop, make the edit, re-align all the content, flatten all the layers, export it with the correct parameters... Furthermore Photoshop is not free as in speech or as in beer.
       p That's why I decided to make the same resume but with LaTeX which is a professional document preparation system. Basically, you declare the general layout, the content and LaTeX does all the formatting part. This is great! No more time is wasted on the layout.
