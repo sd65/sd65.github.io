@@ -1,5 +1,16 @@
 include .config.inc.pug
 
+mixin mkMenu(entries, current)
+  each entry in entries
+    - let addClass = (entry.title === title) ? "active" : null
+    a(href=entry.href, title=entry.title)
+      li(class=addClass)
+        i.fa(class=entry.icon)
+        |
+        |
+        | #{entry.title}
+  
+
 mixin glossary()
   #glossary
     p 
@@ -76,26 +87,14 @@ html
         a(href=resumeLink, title="My resume")
           i.fa.fa-file-text
       ul#nav
-        a(href="/", title="Projects")
-          li
-            i.fa.fa-home
-            |
-            | Personal projects
-        a(href="/professional-projects.html", title="Professional Projects")
-          li
-            i.fa.fa-briefcase
-            |
-            | Professional projects
-        a(href="/about.html", title="About")
-          li
-            i.fa.fa-info
-            |
-            | About
-        a(href="/blog.html", title="Blog")
-          li
-            i.fa.fa-list
-            |
-            | Blog
+        - 
+          let entries = [ 
+            {href: "/", title: "Personal projects", icon: "fa-home"},
+            {href: "/professional-projects.html", title: "Professional projects", icon: "fa-briefcase"},
+            {href: "/about.html", title: "About", icon: "fa-info"},
+            {href: "/blog.html", title: "Blog", icon: "fa-list"}
+          ]
+        +mkMenu(entries, title)
     block content
     footer
       a(href=sourceWebsite)
