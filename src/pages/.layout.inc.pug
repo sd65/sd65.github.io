@@ -77,15 +77,21 @@ html
       #me
         img(src=profilePicUrlMini)
         h1= name
-      #about
-        p= about
       #links
         a(href=linkedinProfile, title="LinkedIn")
           i.fa.fa-linkedin
+          | &nbsp;
+          | LinkedIn
         a(href=githubProfile, title="Github")
           i.fa.fa-github
+          | &nbsp;
+          | Github
         a(href=resumeLink, title="My resume")
           i.fa.fa-file-text
+          | &nbsp;
+          | Resume
+      #about
+        p= about
       ul#nav
         - 
           let entries = [ 
