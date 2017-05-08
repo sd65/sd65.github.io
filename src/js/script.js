@@ -19,6 +19,8 @@ _paq.push(['enableLinkTracking']);
   // Global vars  
   var projects = document.getElementsByClassName("project")
   var selectedTagsDiv = document.getElementById('selectedTags');  
+  var wordProject = document.getElementById('wordProject');  
+  var wordTag = document.getElementById('wordTag');  
   var nbOfProjectsMatching = document.getElementById('nbOfProjectsMatching');  
   var tagsMatchingInfo = document.getElementById('tagsMatchingInfo');  
   
@@ -70,6 +72,8 @@ _paq.push(['enableLinkTracking']);
       }
       tagsMatchingInfo.style.display = "block"
       nbOfProjectsMatching.innerText = nbOfMatch
+      wordProject.className = (nbOfMatch > 1) ? "plural" : "";
+      wordTag.className = (selectedTags.length > 1) ? "plural" : "";
     }
   }
 
