@@ -74,11 +74,11 @@ mixin project(date, title, link, pic, tags, id, details, imgLink)
         a(href=imgHref)
           if ! pic
             - pic = profilePicUrl
-          img(src=pic)
+          img(src=pic, alt=title)
       else
         if ! pic
           - pic = profilePicUrl
-        img(src=pic)
+        img(src=pic, alt=title)
 
 
 html
@@ -112,7 +112,7 @@ html
   body
     header
       #me
-        img(src=profilePicUrlMini)
+        img(src=profilePicUrlMini, alt="Portrait of Sylvain Doignon")
         h1= name
       #links
         a(href=linkedinProfile, title="LinkedIn")
