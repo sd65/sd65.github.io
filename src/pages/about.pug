@@ -1,8 +1,8 @@
 extends .layout.inc.pug
 
 block vars
-  - var title = "About"
-  - metaDescription = "Welcome to my personal website. Find here my bio, resume and contact information."
+  - var title = "Resume"
+  - metaDescription = "My resume and contact information."
 
 block content
   section#aboutme
@@ -12,6 +12,5 @@ block content
       | 
       | #{emailAddress} 
     h2 My resume
-    p (outdated)
     a(href=resumeLink)
       img(src=resumeThumbnail)

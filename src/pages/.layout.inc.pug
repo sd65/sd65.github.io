@@ -105,19 +105,13 @@ html
           i.fa.fa-github
           | &nbsp;
           | Github
-        a(href=resumeLink, title="My resume")
-          i.fa.fa-file-text
-          | &nbsp;
-          | Resume
       #about
         p= about
       ul#nav
         - 
           let entries = [ 
             {href: "/", title: "Personal projects", icon: "fa-home"},
-            {href: "/professional-projects.html", title: "Professional projects", icon: "fa-briefcase"},
-            {href: "/about.html", title: "About", icon: "fa-info"},
-            {href: "/blog.html", title: "Blog", icon: "fa-list"}
+            {href: "/about.html", title: "Resume", icon: "fa-file-text"}
           ]
         +mkMenu(entries, title)
     block content
