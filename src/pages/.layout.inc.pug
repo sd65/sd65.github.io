@@ -48,6 +48,7 @@ mixin project(date, title, link, pic, tags, id, details, imgLink)
   - var theId = id || title.replace(/\W+/g, "").toLowerCase()
   - var detailsHref = details === false ? null : (details || link)
   - var imgHref = imgLink === undefined ? link : imgLink
+  - var hasImgWrap = imgLink === undefined ? (link != null) : !(imgLink === null || imgLink === false)
   article.project(id=theId)
     .info
       span.date
@@ -69,7 +70,7 @@ mixin project(date, title, link, pic, tags, id, details, imgLink)
             | &#160;More details
 
     .visual
-      if imgHref != null
+      if hasImgWrap
         a(href=imgHref)
           if ! pic
             - pic = profilePicUrl
