@@ -44,26 +44,37 @@ mixin svgDecoration
     circle(cx='40', cy='40', r='40')
     text(x="50%", y="58%") Now
 
-mixin project(date, title, link, pic, tags)
-  - var id = title.replace(/\W+/g, "").toLowerCase()
-  article.project(id=id)
+mixin project(date, title, link, pic, tags, id, details, imgLink)
+  - var theId = id || title.replace(/\W+/g, "").toLowerCase()
+  - var detailsHref = details === false ? null : (details || link)
+  - var imgHref = imgLink === undefined ? link : imgLink
+  article.project(id=theId)
     .info
       span.date
         i.fa.fa-calendar
         | &#160;#{date}
-      a(href=link)
+      if link != null
+        a(href=link)
+          h2= title
+      else
         h2= title
       block
       if tags
         each tag in tags
           span.tag=tag
-      a(href=link)
-        h3
-          i.fa.fa-link
-          | &#160;More details
+      if detailsHref != null
+        a(href=detailsHref)
+          h3
+            i.fa.fa-link
+            | &#160;More details
 
     .visual
-      a(href=link)
+      if imgHref != null
+        a(href=imgHref)
+          if ! pic
+            - pic = profilePicUrl
+          img(src=pic)
+      else
         if ! pic
           - pic = profilePicUrl
         img(src=pic)
