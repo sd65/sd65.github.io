@@ -87,6 +87,24 @@ html
     meta(charset='UTF-8')
     meta(name='viewport', content='initial-scale=1.0')
     meta(name="description", content=metaDescription)
+    - var siteUrl = "https://sylvain.doignon.fr" + (pageUrl || "/")
+    meta(property="og:title", content=name + " | " + title)
+    meta(property="og:description", content=metaDescription)
+    meta(property="og:type", content="website")
+    meta(property="og:url", content=siteUrl)
+    meta(property="og:image", content=profilePicUrl)
+    meta(name="twitter:card", content="summary")
+    meta(name="twitter:title", content=name + " | " + title)
+    meta(name="twitter:description", content=metaDescription)
+    meta(name="twitter:image", content=profilePicUrl)
+    script(type='application/ld+json').
+      {
+        "@type": "Person",
+        "name": "#{name}",
+        "url": "https://sylvain.doignon.fr/",
+        "sameAs": ["#{linkedinProfile}", "#{githubProfile}"],
+        "email": "mailto:#{emailAddress}"
+      }
     block meta
     title= name + " | " + title
     link(rel="stylesheet", href="./css/all.min.css")
