@@ -186,7 +186,10 @@ section#projects {
   article {
     overflow: hidden;
     margin-bottom: 30px;
-    padding: 0 10px;
+    // Dashed red line across the top + alternating light-red band make
+    // each project read as a distinct full-width row (desktop and mobile).
+    padding: 15px 10px;
+    border-top: 2px dashed @color3;
     clear: both;
     a {
        text-decoration: none
@@ -198,7 +201,6 @@ section#projects {
       vertical-align: top;
     }
     .info {
-      border-top: 2px solid @color3;
       padding-left: @paddingSubArticle * 1px;
       .date {
         display: inline-block;
@@ -248,6 +250,7 @@ section#projects {
       }
     }
     &:nth-child(even) {
+      background: #fff3f0;
       padding-right: 10px;
       .info {
          float:right;
