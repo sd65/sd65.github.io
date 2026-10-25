@@ -1,0 +1,17 @@
+extends .layout.inc.pug
+
+block vars
+  - var title = "CV"
+  - var pageUrl = "/cv.html"
+  - metaDescription = "My CV and contact information."
+
+block content
+  section#aboutme
+    h2 Contact me
+    a(href="mailto:" + emailAddress)
+      i.fa.fa-envelope-o
+      | 
+      | #{emailAddress} 
+    h2 My CV
+    a(href=cvLink)
+      img(src=cvThumbnail, alt="Thumbnail of my CV")
