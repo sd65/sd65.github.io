@@ -1,0 +1,30 @@
+extends .layout.inc.pug
+
+block vars
+  - var title = "Page not found"
+  - metaDescription = "Page not found."
+
+block meta
+  meta(name="robots", content="noindex")
+
+block content
+  section#aboutme
+    h2 Page not found
+    p
+      | This is a dead link, why don't you check my
+      |
+      a(href="/") personal projects
+      | ?
+
+block scripts
+  script.
+    var _paq = _paq || [];
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="https://piwik.doignon.fr/";
+      _paq.push(['setTrackerUrl', u+'piwik.php']);
+      _paq.push(['setSiteId', '1']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'s.js'; s.parentNode.insertBefore(g,s);
+    })();

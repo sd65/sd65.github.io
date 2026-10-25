@@ -107,8 +107,8 @@ html
       }
     block meta
     title= name + " | " + title
-    link(rel="stylesheet", href="./css/all.min.css")
-    link(rel="icon", href="favicon.ico")
+    link(rel="stylesheet", href="/css/all.min.css")
+    link(rel="icon", href="/favicon.ico")
   body
     header
       #me
@@ -139,4 +139,5 @@ html
         |
         | This website is homemade & available on GitHub
     .scripts
-      script(src="js/all.min.js")
+      block scripts
+        script(src="/js/all.min.js")
