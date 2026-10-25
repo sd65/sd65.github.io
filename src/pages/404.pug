@@ -16,15 +16,6 @@ block content
       a(href="/") personal projects
       | ?
 
+//- Empty block: overrides the layout default on purpose, so that
+//- all.min.js (which expects a #glossary element) is not loaded here.
 block scripts
-  script.
-    var _paq = _paq || [];
-    _paq.push(['trackPageView']);
-    _paq.push(['enableLinkTracking']);
-    (function() {
-      var u="https://piwik.doignon.fr/";
-      _paq.push(['setTrackerUrl', u+'piwik.php']);
-      _paq.push(['setSiteId', '1']);
-      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-      g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'s.js'; s.parentNode.insertBefore(g,s);
-    })();
