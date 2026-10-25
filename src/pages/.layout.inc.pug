@@ -99,8 +99,10 @@ html
     meta(name="twitter:image", content=profilePicUrl)
     script(type='application/ld+json').
       {
+        "@context": "https://schema.org/",
         "@type": "Person",
         "name": "#{name}",
+        "alternateName": "Sylvain Doignon",
         "url": "https://sylvain.doignon.fr/",
         "sameAs": ["#{linkedinProfile}", "#{githubProfile}"],
         "email": "mailto:#{emailAddress}"
