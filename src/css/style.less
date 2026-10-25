@@ -1,7 +1,7 @@
 @import (less) "dist/normalize.css";
 @import (less) "dist/font-awesome.min.css";
 
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import (css) url('https://fonts.googleapis.com/css?family=Roboto');
 
 @color1: black;
 @color2: white;
@@ -176,7 +176,7 @@ section#projects {
     position: absolute;
     top: @start * 1px;
     left: ~"calc(50% - " @redLineWidth / 2 * 1px ~")";
-    height: ~"calc(100% "- @start * 1px ~")";
+    height: ~"calc(100% - @{start}px)";
     width: @redLineWidth * 1px;
     line {
       stroke: @color3;

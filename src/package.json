@@ -11,8 +11,8 @@
     "update:fontAwesome": "rm -rf fonts && cp -r node_modules/font-awesome/fonts fonts && cp node_modules/font-awesome/css/font-awesome.min.css css/dist/",
     "build": "(npm run build:pug & npm run build:css & npm run build:js ) && npm run build:copy",
     "build:pug": "pug pages/* -o .",
-    "build:js": "uglifyjs js/script.js -o js/all.min.js",
-    "build:css": "lessc --clean-css css/style.less css/all.min.css",
+    "build:js": "uglifyjs js/script.js -c -m -o js/all.min.js",
+    "build:css": "lessc --math=always --clean-css css/style.less css/all.min.css",
     "build:copy": "npm run build:copy:clean && npm run build:copy:move",
     "build:copy:clean": "rm -rf ../{*.html,css/*,js/*}",
     "build:copy:move": "mv *.html .. && mv css/all.min.css ../css/ && mv js/all.min.js ../js"
@@ -28,11 +28,14 @@
   },
   "homepage": "https://github.com/sd65/sd65.github.io#readme",
   "dependencies": {
-    "chokidar-cli": "^1.2.0",
+    "chokidar-cli": "^3.0.0",
     "font-awesome": "^4.7.0",
-    "less": "^2.7.2",
+    "less": "^4.9.1",
     "less-plugin-clean-css": "^1.5.1",
     "pug-cli": "^1.0.0-alpha6",
-    "uglify": "^0.1.5"
+    "uglify-js": "^3.0.0"
+  },
+  "overrides": {
+    "pug": "^3.0.3"
   }
 }
